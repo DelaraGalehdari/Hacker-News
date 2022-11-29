@@ -19,7 +19,7 @@ const DropDownButton = ({ handleStoryType }) => {
           onChange={(e) => setStoryType(e.target.value)}
           style={{ padding: "9px 12px" }}
         >
-          <option value="new" selected>
+          <option value="new" defaultValue>
             New Storiest
           </option>
           <option value="top">Top Stories</option>

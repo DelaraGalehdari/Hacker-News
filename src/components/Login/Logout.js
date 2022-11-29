@@ -6,7 +6,7 @@ const Logout = () => {
   const { user, logout, isAuthenticated } = useAuth0();
   return (
     isAuthenticated && (
-      <form className="form-inline">
+      <div className="form-inline">
         <button
           className="btn btn-outline-info logout-btn"
           aria-pressed="true"
@@ -15,7 +15,7 @@ const Logout = () => {
           Log Out
         </button>
         <p>{user.email}</p>
-      </form>
+      </div>
     )
   );
 };

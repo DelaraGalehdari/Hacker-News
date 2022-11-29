@@ -4,9 +4,10 @@ import "./PaginateStories.css";
 
 const PaginateStories = ({ topStoriesIds, handlePage }) => {
   const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
   const [currentItems, setCurrentItems] = useState([]);
+  const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
+
   useEffect(() => {
     // Fetch items based of number of page
     const endOffset = itemOffset + itemsPerPage;
@@ -16,8 +17,8 @@ const PaginateStories = ({ topStoriesIds, handlePage }) => {
   }, [itemOffset, itemsPerPage, topStoriesIds]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % topStoriesIds.length;
-
+    let currentPage = event.selected + 1;
+    const newOffset = (currentPage * itemsPerPage) % topStoriesIds.length;
     setItemOffset(newOffset);
   };
 
@@ -27,15 +28,21 @@ const PaginateStories = ({ topStoriesIds, handlePage }) => {
         nextLabel=">>"
         previousLabel="<<"
         breakLabel="..."
-        forcePage={itemOffset}
         pageCount={pageCount}
+        marginPagesDisplayed={2}
         pageRangeDisplayed={3}
         renderOnZeroPageCount={null}
         onPageChange={handlePageClick}
-        className="pagination"
-        activeClassName="active-page"
-        previousClassName="previous-page"
-        nextClassName="next-page"
+        containerClassName={"pagination justify-content-center"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"page-item"}
+        previousLinkClassName={"page-link"}
+        nextClassName={"page-item"}
+        nextLinkClassName={"page-link"}
+        breakClassName={"page-item"}
+        breakLinkClassName={"page-link"}
+        activeClassName={"active"}
       />
     </div>
   );
