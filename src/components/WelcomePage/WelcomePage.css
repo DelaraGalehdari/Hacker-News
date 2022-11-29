@@ -1,0 +1,14 @@
+.welcome-container {
+  background-color: #f7f7f7;
+  height: 75vh;
+  padding: 10px 10px;
+  margin: 35px 35px;
+  border-radius: 7px;
+  box-shadow: 0px 3px #888888;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-container p {
+  width: 70%;
+}
