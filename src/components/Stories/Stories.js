@@ -4,6 +4,7 @@ import { fetchTopstoriesIds, fetchStories } from "../../hooks/fetchData";
 import StoryCard from "../StoryCard/StoryCard";
 import PaginateStories from "../PaginateStories/PaginateStories";
 import "./AllNews.css";
+import WelcomePage from "../WelcomePage/WelcomePage";
 
 const Stories = ({ storyType }) => {
   //➡️All the states
@@ -34,23 +35,23 @@ const Stories = ({ storyType }) => {
     setEndOffset(max);
   };
 
-  return (
-    isAuthenticated && (
-      <div>
-        <div className="news-container border border-success border-design">
-          {stories.map((story, index) => (
-            <div key={story.id + index}>
-              <StoryCard storyData={story} />
-            </div>
-          ))}
-        </div>
-        <PaginateStories
-          topStoriesIds={topStoriesIds}
-          handlePage={handlePage}
-          allStories={stories}
-        />
+  return isAuthenticated ? (
+    <div>
+      <div className="news-container border border-success border-design">
+        {stories.map((story, index) => (
+          <div key={story.id + index}>
+            <StoryCard storyData={story} />
+          </div>
+        ))}
       </div>
-    )
+      <PaginateStories
+        topStoriesIds={topStoriesIds}
+        handlePage={handlePage}
+        allStories={stories}
+      />
+    </div>
+  ) : (
+    <WelcomePage />
   );
 };
 
