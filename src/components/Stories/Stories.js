@@ -37,18 +37,18 @@ const Stories = ({ storyType }) => {
 
   return isAuthenticated ? (
     <div>
-      <div className="news-container border border-success border-design">
-        {stories.map((story, index) => (
-          <div key={story.id + index}>
-            <StoryCard storyData={story} />
-          </div>
-        ))}
-      </div>
       <PaginateStories
         topStoriesIds={topStoriesIds}
         handlePage={handlePage}
         allStories={stories}
       />
+      <div className="news-container border border-success border-design">
+        {stories.map((story, index) => (
+          <div key={index}>
+            <StoryCard storyData={story} />
+          </div>
+        ))}
+      </div>
     </div>
   ) : (
     <WelcomePage />
