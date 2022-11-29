@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  width: 120px;
+  cursor: pointer;
+}
+
+.form-inline p {
+  margin-top: 5rem;
+}
+.logout-btn {
+  margin-right: -9rem;
+  margin-left: 10px;
+}
+
+/* media */
+@media only screen and (max-width: 575px) {
+  .logout-btn {
+    margin-bottom: 38px;
+  }
+}

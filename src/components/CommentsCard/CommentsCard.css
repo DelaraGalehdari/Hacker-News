@@ -1,0 +1,10 @@
+.comment-container {
+  margin-top: 5px;
+  padding-left: 50pt;
+  padding-right: 50pt;
+}
+.comment-author span {
+  display: flex;
+  color: #17a2b8;
+  font-size: 15px;
+}

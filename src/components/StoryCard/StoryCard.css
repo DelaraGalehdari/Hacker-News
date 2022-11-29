@@ -1,0 +1,72 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.stort-container {
+  padding: 10px 10px;
+}
+.stort-container p {
+  font-size: 18px;
+}
+.flex-row a {
+  margin-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: dimgrey;
+  padding-top: 6px;
+  cursor: pointer;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: -10%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.test {
+  width: 90%;
+  margin-bottom: 2%;
+}
+.story-link {
+  display: flex;
+  flex-direction: row;
+}
+.story-link p {
+  margin-right: 15px;
+}
+.story-link a {
+  color: rgb(160, 158, 158);
+}
+
+/* media */
+@media only screen and (max-width: 750px) {
+  .story-link {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .story-link a {
+    width: 300px !important;
+  }
+}

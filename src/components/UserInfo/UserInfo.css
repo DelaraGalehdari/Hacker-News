@@ -1,0 +1,18 @@
+.user-container {
+  background-color: #f7f7f7;
+  height: 100%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+@media only screen and (max-width: 600px) {
+  .user-container {
+    flex-direction: column;
+  }
+}
