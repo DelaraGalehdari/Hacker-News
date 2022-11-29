@@ -1,3 +1,11 @@
+***In this app, we can see all the stories of hacker news API.
+*The app is divided into various components, stories component fetches all the ids and stories data from API and shows all the details of each story in a component called story card.
+*Each Author is clickable and by clicking, you can see all the information of the user.
+*Each story has comments, and if the number of components is greater than zero, by clicking, all the components’ details are shown.
+*The app includes react pagination. Each page shows 10 stories, and by clicking on the number of pages, you can see the data of another page.
+*The stories are grouped by best stories, top stories, and new stories.
+*The app includes user authentication, so you need to log in to see all the news.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
