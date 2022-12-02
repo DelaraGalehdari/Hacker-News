@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { fetchStories } from "../../hooks/fetchData";
 import { convertDate } from "../../hooks/dateConvertor";
 import { BsFillPersonFill } from "react-icons/bs";
-import { capitalizeFirstLetter } from "../../hooks/capitalizeLetter";
 import "./CommentsCard.css";
 import "../../App.css";
 import { Link } from "react-router-dom";
@@ -40,7 +39,7 @@ const CommentsCard = ({ commentsIds }) => {
                   state={{ name: item.by }}
                   style={{ color: "rgb(40, 167, 69)" }}
                 >
-                  {capitalizeFirstLetter(item.by)}
+                  {item.by}
                 </Link>
               </div>
             </div>
