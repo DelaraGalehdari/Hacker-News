@@ -26,11 +26,20 @@ const UserInfo = () => {
     <>
       <div className="user-container">
         <img src={userPhoto} alt="profile" />
-        <div className="user-details">
-          <p>{userInfo.about}</p>
-          <div>Posted {convertDate(userInfo.created)}</div>
-          <div>Karma: {userInfo.karma}</div>
-          <div>User Id: {userInfo.id}</div>
+        <div className="user-info">
+          <div className="user-details">
+            <p>{userInfo.about}</p>
+            <div>
+              <span className="title-info">Posted</span>{" "}
+              {convertDate(userInfo.created)} ago
+            </div>
+            <div>
+              <span className="title-info">Karma:</span> {userInfo.karma}
+            </div>
+            <div>
+              <span className="title-info">User Id:</span> {userInfo.id}
+            </div>
+          </div>
           <div className="btn btn-warning" onClick={handleClick}>
             Back
           </div>

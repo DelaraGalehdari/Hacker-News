@@ -4,8 +4,11 @@ import React, { useEffect, useState } from "react";
 import { fetchStories } from "../../hooks/fetchData";
 import { convertDate } from "../../hooks/dateConvertor";
 import { BsFillPersonFill } from "react-icons/bs";
+import { capitalizeFirstLetter } from "../../hooks/capitalizeLetter";
 import "./CommentsCard.css";
+import "../../App.css";
 import { Link } from "react-router-dom";
+import spinner from "../../images/Iphone-spinner.gif";
 
 const CommentsCard = ({ commentsIds }) => {
   const [commentsData, setCommentsData] = useState([]);
@@ -25,22 +28,26 @@ const CommentsCard = ({ commentsIds }) => {
   return (
     <>
       {loading ? (
-        <p>...Loading</p>
+        <img className="img-loading" alt="loading" src={spinner} />
       ) : (
         commentsData.map((item, index) => (
           <div className="comment-container" key={index}>
             <div className="comment-author">
               <div>
                 <BsFillPersonFill />
-                <Link to="/user" state={{ name: item.by }}>
-                  {item.by}
+                <Link
+                  to="/user"
+                  state={{ name: item.by }}
+                  style={{ color: "rgb(40, 167, 69)" }}
+                >
+                  {capitalizeFirstLetter(item.by)}
                 </Link>
               </div>
             </div>
             <p>Comment : {item.text}</p>
             {item.kids && <CommentsCard commentsIds={item.kids} />}
 
-            <div>{convertDate(item.time)}</div>
+            <div>{convertDate(item.time)} ago</div>
           </div>
         ))
       )}

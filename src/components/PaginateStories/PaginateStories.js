@@ -4,7 +4,6 @@ import "./PaginateStories.css";
 
 const PaginateStories = ({ topStoriesIds, handlePage }) => {
   const [pageCount, setPageCount] = useState(0);
-  const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
 
@@ -12,7 +11,6 @@ const PaginateStories = ({ topStoriesIds, handlePage }) => {
     // Fetch items based of number of page
     const endOffset = itemOffset + itemsPerPage;
     handlePage(itemOffset, endOffset);
-    setCurrentItems(topStoriesIds.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(topStoriesIds.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, topStoriesIds]);
 
