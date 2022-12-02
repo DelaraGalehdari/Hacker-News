@@ -4,3 +4,9 @@
 #navbar-text {
   color: #17a2b8;
 }
+@media only screen and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}

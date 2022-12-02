@@ -7,6 +7,7 @@ import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { BsFillChatTextFill, BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
 import CommentsCard from "../CommentsCard/CommentsCard";
+import { capitalizeFirstLetter } from "../../hooks/capitalizeLetter";
 import "./StoryCard.css";
 
 const StoryCard = ({ storyData }) => {
@@ -19,43 +20,55 @@ const StoryCard = ({ storyData }) => {
         <p>
           <BsFillChatTextFill /> {storyData.title}
         </p>
-        <a href={storyData.url}>{storyData.url}</a>
+        <a href={storyData.url}>({storyData.url})</a>
       </div>
-
-      <div style={{ marginRight: "10px" }}>
-        <AiOutlineLike /> {storyData.score}
-      </div>
-      <div style={{ marginRight: "10px" }}>
-        <BsFillPersonFill />
-        <Link to="/user" state={{ name: storyData.by }}>
-          {storyData.by}
-        </Link>
-      </div>
-      <div>Posted :{convertDate(storyData.time)}</div>
-      <div className="d-flex flex-row story-info">
-        {storyData.descendants > 0 ? (
-          <div
-            style={{ marginRight: "10px" }}
-            onClick={() => {
-              setOpenComment(!openComment);
-            }}
+      <div className="news-details">
+        <div style={{ marginRight: "10px" }}>
+          <AiOutlineLike /> {storyData.score}
+        </div>
+        <div style={{ marginRight: "10px" }}>
+          <BsFillPersonFill />
+          <Link
+            to="/user"
+            style={{ color: "#28a745" }}
+            state={{ name: storyData.by }}
           >
-            {openComment ? (
-              <MdOutlineArrowDropDown />
+            {" "}
+            {capitalizeFirstLetter(storyData.by)}
+          </Link>
+        </div>
+        <div style={{ marginRight: "10px" }}>
+          Posted :{convertDate(storyData.time)} ago
+        </div>
+        <div>{storyData.id}</div>
+        <div className="show-com">
+          <div className="d-flex flex-row story-info">
+            {storyData.descendants > 0 ? (
+              <div
+                style={{ marginRight: "10px" }}
+                onClick={() => {
+                  setOpenComment(!openComment);
+                }}
+              >
+                {openComment ? (
+                  <MdOutlineArrowDropDown />
+                ) : (
+                  <MdOutlineArrowDropUp />
+                )}
+                {storyData.descendants} <span> Comments</span>
+              </div>
             ) : (
-              <MdOutlineArrowDropUp />
+              <div style={{ display: "flex" }}>
+                {storyData.descendants}
+                <span> Comments</span>
+              </div>
             )}
-            {storyData.descendants} Comments
           </div>
-        ) : (
-          <div style={{ marginRight: "10px" }}>
-            {storyData.descendants} Comments
+          <div className="comment-kids-container">
+            {storyData.descendants > 0 && openComment && (
+              <CommentsCard commentsIds={storyData.kids} />
+            )}
           </div>
-        )}
-        <div className="test">
-          {storyData.descendants > 0 && openComment && (
-            <CommentsCard commentsIds={storyData.kids} />
-          )}
         </div>
       </div>
     </div>
