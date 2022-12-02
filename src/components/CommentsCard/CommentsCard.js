@@ -8,6 +8,7 @@ import "./CommentsCard.css";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import spinner from "../../images/Iphone-spinner.gif";
+import striptags from "striptags";
 
 const CommentsCard = ({ commentsIds }) => {
   const [commentsData, setCommentsData] = useState([]);
@@ -43,7 +44,7 @@ const CommentsCard = ({ commentsIds }) => {
                 </Link>
               </div>
             </div>
-            <p>Comment : {item.text}</p>
+            <p>Comment : {striptags(item.text)}</p>
             {item.kids && <CommentsCard commentsIds={item.kids} />}
 
             <div>{convertDate(item.time)} ago</div>
