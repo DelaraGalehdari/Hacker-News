@@ -40,7 +40,7 @@ const StoryCard = ({ storyData }) => {
         <div style={{ marginRight: "10px" }}>
           Posted :{convertDate(storyData.time)} ago
         </div>
-        <div>{storyData.id}</div>
+        {/* <div>{storyData.id}</div> */}
         <div className="show-com">
           <div className="d-flex flex-row story-info">
             {storyData.descendants > 0 ? (
