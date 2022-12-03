@@ -18,19 +18,23 @@ const AllNews = ({ storyType }) => {
   //Fetch data
   const loadStories = async () => {
     try {
-      const topStoriesIdsData = await fetchTopstoriesIds(storyType);
-      setTopStoriesIds(topStoriesIdsData);
-      const storiesData = await fetchStories(
-        topStoriesIdsData.slice(startOffset, endOffset)
-      );
-      setStories(storiesData);
+      if (storyType) {
+        const topStoriesIdsData = await fetchTopstoriesIds(storyType);
+        setTopStoriesIds(topStoriesIdsData);
+        const storiesData = await fetchStories(
+          topStoriesIdsData.slice(startOffset, endOffset)
+        );
+        setStories(storiesData);
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    loadStories();
+    if (isAuthenticated) {
+      loadStories();
+    }
   }, [storyType, startOffset, endOffset]);
 
   //➡️define start and end number of stories for paginations
