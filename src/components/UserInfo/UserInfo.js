@@ -3,6 +3,7 @@ import { fetchUserData } from "../../hooks/fetchData";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { convertDate } from "../../hooks/dateConvertor";
+import striptags from "striptags";
 import "./UserInfo.css";
 import userPhoto from "../../images/download.png";
 
@@ -22,13 +23,17 @@ const UserInfo = () => {
   const handleClick = () => {
     navigate("/", { replace: true });
   };
+  const handleConvertText = (str) => {
+    const data = striptags(str);
+    return data.replace(/[&\\\#,+()$~%'"*?<>{}]/g, "");
+  };
   return (
     <>
       <div className="user-container">
         <img src={userPhoto} alt="profile" />
         {/* <div className="user-info"> */}
         <div className="user-details">
-          <p>{userInfo.about}</p>
+          <p>{handleConvertText(userInfo.about)}</p>
           <div>
             <span className="title-info">Posted</span>{" "}
             {convertDate(userInfo.created)} ago

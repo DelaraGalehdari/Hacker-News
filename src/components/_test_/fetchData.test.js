@@ -14,7 +14,7 @@ it("fetch stories", async () => {
       by: "robin_reala",
       descendants: 0,
       id: 33830066,
-      score: 1,
+      score: 2,
       time: 1669987085,
       title: "Visual Studio Code: Remote Code Execution",
       type: "story",
