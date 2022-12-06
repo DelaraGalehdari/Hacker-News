@@ -25,6 +25,11 @@ const CommentsCard = ({ commentsIds }) => {
     loadComponents();
   }, []);
 
+  const handleConvertText = (str) => {
+    const data = striptags(str);
+    return data.replace(/[&\\\#,+()$~%'"*?<>{}]/g, "");
+  };
+
   return (
     <>
       {loading ? (
@@ -44,7 +49,7 @@ const CommentsCard = ({ commentsIds }) => {
                 </Link>
               </div>
             </div>
-            <p>Comment : {striptags(item.text)}</p>
+            <p>Comment : {handleConvertText(item.text)}</p>
             {item.kids && <CommentsCard commentsIds={item.kids} />}
 
             <div>{convertDate(item.time)} ago</div>
