@@ -23,7 +23,7 @@ const CommentsCard = ({ commentsIds }) => {
 
   useEffect(() => {
     loadComponents();
-  }, []);
+  }, [commentsIds]);
 
   const handleConvertText = (str) => {
     const data = striptags(str);
