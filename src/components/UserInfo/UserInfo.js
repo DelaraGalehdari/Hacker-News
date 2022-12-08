@@ -25,7 +25,9 @@ const UserInfo = () => {
   };
   const handleConvertText = (str) => {
     const data = striptags(str);
-    return data.replace(/[&\\\#,+()$~%'"*?<>{}]/g, "");
+    const data_converted1 = data.replace(/[&\\\#,+()$~%'"*?<>{}]/g, "");
+    const data_converted2 = data_converted1.replace(/[xF]/g, "");
+    return data_converted2.replace(/[X27;]/g, "");
   };
   return (
     <>
